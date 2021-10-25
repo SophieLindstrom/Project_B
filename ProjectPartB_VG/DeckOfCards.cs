@@ -25,16 +25,24 @@ namespace ProjectPartB_B2
 
         #region Shuffle and Sorting
         public void Shuffle()
-        { }
+        {
+
+        }
         public void Sort()
-        { }
+        {
+            
+        }
         #endregion
 
         #region Creating a fresh Deck
         public virtual void Clear()
-        { }
+        { 
+
+        }
         public void CreateFreshDeck()
-        { }
+        { 
+
+        }
         #endregion
 
         #region Dealing

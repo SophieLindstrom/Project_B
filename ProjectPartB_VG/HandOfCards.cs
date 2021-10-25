@@ -10,7 +10,9 @@ namespace ProjectPartB_B2
     {
         #region Pick and Add related
         public virtual void Add(PlayingCard card)
-        { }
+        {
+
+        }
         #endregion
 
         #region Highest Card related

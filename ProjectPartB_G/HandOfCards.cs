@@ -8,24 +8,35 @@ namespace ProjectPartB_B1
 {
     class HandOfCards : DeckOfCards, IHandOfCards
     {
+        List<PlayingCard> hand = new List<PlayingCard>();
         #region Pick and Add related
         public void Add(PlayingCard card)
-        { }
+        {
+            //PlayingCard card1 = new PlayingCard();
+            hand.Add(card);
+        }
         #endregion
-
+        public new void Sort() 
+        {
+            hand.Sort((x, y) => x.Value.CompareTo(y.Value));
+        }
         #region Highest Card related
         public PlayingCard Highest
         {
             get
             {
-               return null;
+                Sort();
+                PlayingCard highest = hand[^1];
+                return highest;
             }
          }
         public PlayingCard Lowest
         {
             get
             {
-               return null;
+                Sort();
+                PlayingCard lowest = hand[0];
+                return lowest;
             }
         }
         #endregion

@@ -20,7 +20,7 @@ namespace ProjectPartB_B1
         /// </summary>
         public int Count { get; }
 
-        //Should be overriden and implemented to print out the complete deck in short card notation
+        //!Should be overriden and implemented to print out the complete deck in short card notation
         public string ToString();
 
         /// <summary>
@@ -43,7 +43,6 @@ namespace ProjectPartB_B1
         /// Added in order Clubs (Two..Ace), Diamonds (Two..Ace), Hearts (Two..Ace), Spades (Two..Ace) 
         /// </summary>
         public void CreateFreshDeck();
-
         /// <summary>
         /// Removes the top card of the deck and reduces the number of cards in the deck with one.
         /// </summary>
