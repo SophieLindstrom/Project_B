@@ -74,6 +74,8 @@ namespace ProjectPartB_B1
                 for (PlayingCardValue value = PlayingCardValue.Two; value <= PlayingCardValue.Ace; value++)
                 {
                     cards.Add(new PlayingCard(color, value));
+                    cards[] 
+                  
                     
                 }
             }

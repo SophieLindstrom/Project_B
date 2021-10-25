@@ -19,6 +19,7 @@ namespace ProjectPartB_B1
         public new void Sort() 
         {
             hand.Sort((x, y) => x.Value.CompareTo(y.Value));
+            //hand.Sort();
         }
         #region Highest Card related
         public PlayingCard Highest
@@ -28,6 +29,7 @@ namespace ProjectPartB_B1
                 Sort();
                 PlayingCard highest = hand[^1];
                 return highest;
+                //return this[Count -1];
             }
          }
         public PlayingCard Lowest

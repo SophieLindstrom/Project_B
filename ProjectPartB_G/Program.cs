@@ -6,7 +6,7 @@ namespace ProjectPartB_B1
     {
         static void Main(string[] args)
         {
-            PlayingCard card1 = new PlayingCard { Value = PlayingCardValue.Two, Color = PlayingCardColor.Clubs };
+            PlayingCard card1 = new PlayingCard { Value = PlayingCardValue.Five, Color = PlayingCardColor.Clubs };
             PlayingCard card2 = new PlayingCard { Value = PlayingCardValue.Three, Color = PlayingCardColor.Spades };
             PlayingCard card3 = new PlayingCard { Value = PlayingCardValue.Three, Color = PlayingCardColor.Spades };
             

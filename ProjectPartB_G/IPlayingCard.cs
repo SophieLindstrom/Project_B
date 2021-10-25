@@ -26,7 +26,7 @@ namespace ProjectPartB_B1
 	interface IPlayingCard
     {
 		/// <summary>
-		/// The color or suit of the card
+		
 		/// </summary>
 		public PlayingCardColor Color { get; init; }
 
