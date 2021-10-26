@@ -34,8 +34,6 @@ namespace ProjectPartB_B1
             if (this.Value < card.Value ) return -1;
             else if (this.Value == card.Value ) return 0;
             else return 1;
-
-            //return (this.Value, this.Color).CompareTo((card1.Value, card1.Color));
         }
         #endregion
 

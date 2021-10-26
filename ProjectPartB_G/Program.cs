@@ -50,16 +50,16 @@ namespace ProjectPartB_B1
 
                 Console.WriteLine($"Player1 hand with {_NrOfCards} cards");
                 Console.WriteLine($"Lowest card in hand is {player1.Lowest} and highest card is {player1.Highest}:");
-                Console.WriteLine(player1.ToString());
+                Console.WriteLine(player1);
 
                 Console.WriteLine($"Player2 hand with {_NrOfCards} cards");
                 Console.WriteLine($"Lowest card in hand is {player2.Lowest} and highest card is {player2.Highest}:");
                 Console.WriteLine(player2);
 
                 DetermineWinner(player1, player2);
-
                 player1.Clear();
                 player2.Clear();
+
             }
 
         }
@@ -160,6 +160,8 @@ namespace ProjectPartB_B1
                 _ => throw new NotImplementedException()
             };
             Console.WriteLine(WinningCard);
+
+            
         }
     }
 }

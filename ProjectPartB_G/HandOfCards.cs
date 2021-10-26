@@ -20,6 +20,10 @@ namespace ProjectPartB_B1
             hand.Sort((x, y) => x.Value.CompareTo(y.Value));
             //hand.Sort();
         }
+        public new void Clear()
+        {
+            hand.Clear();
+        }
         #region Highest Card related
         public PlayingCard Highest
         {
@@ -40,6 +44,10 @@ namespace ProjectPartB_B1
                 return lowest;
             }
         }
+        public override string ToString() 
+        { string sRet = ""; for (int i = 0; i < hand.Count; i++) 
+            { sRet += $"{hand[i]}"; } 
+            return sRet; }
         #endregion
     }
 }
