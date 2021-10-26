@@ -46,15 +46,6 @@ namespace ProjectPartB_B1
                 (cards[loCard], cards[hiCard]) = (cards[hiCard], cards[loCard]);
             }
         }
-        //{
-        //    Random rnd = new Random();
-        //    for (int i = 0; i < cards.Count; i++)
-        //    {
-        //        int k = rnd.Next(0, i);
-        //        PlayingCard value = cards[k];
-        //        cards[k] = cards[i];
-        //        cards[i] = value;
-        //    }
 
         public void Sort()
         {
@@ -74,7 +65,7 @@ namespace ProjectPartB_B1
                 for (PlayingCardValue value = PlayingCardValue.Two; value <= PlayingCardValue.Ace; value++)
                 {
                     cards.Add(new PlayingCard(color, value));
-                    cards[] 
+                    
                   
                     
                 }

@@ -12,8 +12,7 @@ namespace ProjectPartB_B1
         #region Pick and Add related
         public void Add(PlayingCard card)
         {
-            //PlayingCard card1 = new PlayingCard();
-            hand.Add(card);
+          hand.Add(card);
         }
         #endregion
         public new void Sort() 
@@ -27,9 +26,9 @@ namespace ProjectPartB_B1
             get
             {
                 Sort();
-                PlayingCard highest = hand[^1];
-                return highest;
-                //return this[Count -1];
+                return hand[hand.Count - 1];
+                
+                
             }
          }
         public PlayingCard Lowest

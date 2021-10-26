@@ -6,16 +6,8 @@ namespace ProjectPartB_B1
     {
         static void Main(string[] args)
         {
-            PlayingCard card1 = new PlayingCard { Value = PlayingCardValue.Five, Color = PlayingCardColor.Clubs };
-            PlayingCard card2 = new PlayingCard { Value = PlayingCardValue.Three, Color = PlayingCardColor.Spades };
-            PlayingCard card3 = new PlayingCard { Value = PlayingCardValue.Three, Color = PlayingCardColor.Spades };
-            
             DeckOfCards myDeck = new DeckOfCards();
 
-            
-            Console.WriteLine(card1.Equals(card2));
-            Console.WriteLine(card2.Equals(card3));
-            Console.WriteLine(card1.CompareTo(card2)); 
             myDeck.CreateFreshDeck();
             Console.WriteLine($"\nA freshly created deck with {myDeck.Count} cards:");
             Console.WriteLine(myDeck);
@@ -28,34 +20,49 @@ namespace ProjectPartB_B1
             myDeck.Shuffle();
             Console.WriteLine(myDeck);
 
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press any key to continue!");
             Console.ReadKey();
 
-            int NrOfRounds = 0;
-            bool Continue = TryReadNrOfCards(out int NrOfCards) &&
-                            TryReadNrOfRounds(out NrOfRounds);
+            int _NrOfCards = 0;
+            int _NrOfRounds = 0;
+            bool Continue = TryReadNrOfCards(out _NrOfCards) &&
+                            TryReadNrOfRounds(out _NrOfRounds);
 
             if (!Continue)
             {
                 return;
             }
 
-            //int i = 0;
-            //while (NrOfRounds > i) 
-            //{
-            //    Console.WriteLine((i+1));
-            //    i++;
-            //}
-            //Console.ReadKey();
-
-
-
             HandOfCards player1 = new HandOfCards();
             HandOfCards player2 = new HandOfCards();
 
             //Your code to play the game comes here
-        }
+            for (int i = 0; i < _NrOfRounds; i++)
+            {
+                //Informing the user what round is being played.
+                Console.WriteLine($"Playing round {i + 1} out of {_NrOfRounds}\n------------------------");
 
+                //Deal the cards from the top of the deck to player1 and player.
+                Deal(myDeck, _NrOfCards, player1, player2);
+
+                //Amount of cards given and amount of cards left in deck.
+                Console.WriteLine($"Gave {_NrOfCards} card(s) each to the players from the top of the deck. Deck has now {myDeck.Count} card(s).\n");
+
+                Console.WriteLine($"Player1 hand with {_NrOfCards} cards");
+                Console.WriteLine($"Lowest card in hand is {player1.Lowest} and highest card is {player1.Highest}:");
+                Console.WriteLine(player1.ToString());
+
+                Console.WriteLine($"Player2 hand with {_NrOfCards} cards");
+                Console.WriteLine($"Lowest card in hand is {player2.Lowest} and highest card is {player2.Highest}:");
+                Console.WriteLine(player2);
+
+                DetermineWinner(player1, player2);
+
+                player1.Clear();
+                player2.Clear();
+            }
+
+        }
         /// <summary>
         /// Asking a user to give how many cards should be given to players.
         /// User enters an integer value between 1 and 5. 
@@ -65,10 +72,10 @@ namespace ProjectPartB_B1
         private static bool TryReadNrOfCards(out int NrOfCards)
         {
             Console.Clear();
+            Console.WriteLine("Let's play a game of highest card with two players.");
             string sInput;
             do
             {
-                Console.WriteLine("Let's play a game of highest card with two players");
                 Console.WriteLine("How many cards to deal to each player? (1-5 or Q to quit)");
 
                 sInput = Console.ReadLine();
@@ -78,7 +85,7 @@ namespace ProjectPartB_B1
                 }
                 else if (sInput != "Q" && sInput != "q")
                 {
-                    
+
                     Console.WriteLine($"Wrong input, try again");
                 }
             } while ((sInput != "Q" && sInput != "q"));
@@ -108,8 +115,8 @@ namespace ProjectPartB_B1
                 }
                 else if (sInput != "Q" && sInput != "q")
                 {
-                   
-                    Console.WriteLine($"\"{sInput}\" is wrong input, please try again.\n");
+
+                    Console.WriteLine($"Wrong input, try again");
                 }
             } while ((sInput != "Q" && sInput != "q"));
             NrOfRounds = 0;
@@ -125,11 +132,17 @@ namespace ProjectPartB_B1
         /// <param name="player2">Player 2</param>
         private static void Deal(DeckOfCards myDeck, int nrCardsToPlayer, HandOfCards player1, HandOfCards player2)
         {
-            PlayingCard pc = myDeck.RemoveTopCard();
-            player1.Add(pc);
+            for (int i = 0; i < nrCardsToPlayer; i++)
+            {
+
+                player1.Add(myDeck.RemoveTopCard());
+                player2.Add(myDeck.RemoveTopCard());
+                
+            }
+
 
         }
-        
+
         /// <summary>
         /// Determines and writes to Console the winner of player1 and player2. 
         /// Player with higest card wins. If both cards have equal value it is a tie.
@@ -137,6 +150,16 @@ namespace ProjectPartB_B1
         /// <param name="player1">Player 1</param>
         /// <param name="player2">Player 2</param>
         private static void DetermineWinner(HandOfCards player1, HandOfCards player2)
-        { }
+        {
+
+            string WinningCard = player1.Highest.CompareTo(player2.Highest) switch
+            {
+                1 => "Player1 wins!",
+                0 => "It's a tie!",
+                -1 => "Player2 wins!",
+                _ => throw new NotImplementedException()
+            };
+            Console.WriteLine(WinningCard);
+        }
     }
 }

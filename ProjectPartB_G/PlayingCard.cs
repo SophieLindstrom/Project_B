@@ -11,8 +11,6 @@ namespace ProjectPartB_B1
 		public PlayingCardColor Color { get; init; }
 		public PlayingCardValue Value { get; init; }
 
-        public PlayingCard() { }
-        //public PlayingCard() : this(PlayingCardColor.Clubs, PlayingCardValue.Two) { }
         public PlayingCard(PlayingCardColor color, PlayingCardValue value)
         {
             Color = color;
