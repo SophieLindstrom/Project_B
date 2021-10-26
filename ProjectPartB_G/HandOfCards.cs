@@ -20,7 +20,7 @@ namespace ProjectPartB_B1
             hand.Sort((x, y) => x.Value.CompareTo(y.Value));
             //hand.Sort();
         }
-        public new void Clear()
+        public override void Clear()
         {
             hand.Clear();
         }

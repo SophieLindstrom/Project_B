@@ -54,7 +54,7 @@ namespace ProjectPartB_B1
         }
         #endregion
         #region Creating a fresh Deck
-        public void Clear()
+        public virtual void Clear()
         {
             cards.Clear(); 
         }
@@ -79,9 +79,7 @@ namespace ProjectPartB_B1
             PlayingCard temp1 = cards[^1];
             cards = cards.Take(cards.Count() - 1).ToList();
             return temp1;
-            
-               
-            
+             
 
 
         }
