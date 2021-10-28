@@ -23,6 +23,8 @@ namespace ProjectPartB_B1
             Console.WriteLine("Press any key to continue!");
             Console.ReadKey();
 
+            #region Playing the game
+
             int _NrOfCards = 0;
             int _NrOfRounds = 0;
             bool Continue = TryReadNrOfCards(out _NrOfCards) &&
@@ -36,34 +38,37 @@ namespace ProjectPartB_B1
             HandOfCards player1 = new HandOfCards();
             HandOfCards player2 = new HandOfCards();
 
-            //Your code to play the game comes here
+
             for (int i = 0; i < _NrOfRounds; i++)
             {
                 //Informing the user what round is being played.
                 Console.WriteLine($"Playing round {i + 1} out of {_NrOfRounds}\n------------------------");
 
-                //Deal the cards from the top of the deck to player1 and player.
+                //Deal the cards from the top of the deck to player 1 and player 2.
                 Deal(myDeck, _NrOfCards, player1, player2);
 
                 //Amount of cards given and amount of cards left in deck.
                 Console.WriteLine($"Gave {_NrOfCards} card(s) each to the players from the top of the deck. Deck has now {myDeck.Count} card(s).\n");
 
                 Console.WriteLine($"Player1 hand with {_NrOfCards} cards");
-                Console.WriteLine($"Lowest card in hand is {player1.Lowest} and highest card is {player1.Highest}:");
-                Console.WriteLine(player1);
+                Console.WriteLine($"Lowest card in hand is: {player1.Lowest}");
+                Console.WriteLine($"Highest card in hand is: {player1.Highest}");
+                Console.WriteLine($"{player1}\n");
 
                 Console.WriteLine($"Player2 hand with {_NrOfCards} cards");
-                Console.WriteLine($"Lowest card in hand is {player2.Lowest} and highest card is {player2.Highest}:");
-                Console.WriteLine(player2);
+                Console.WriteLine($"Lowest card in hand is: {player2.Lowest}");
+                Console.WriteLine($"Highest card in hand is: {player2.Highest}");
+                Console.WriteLine($"{player2}\n");
 
                 DetermineWinner(player1, player2);
                 player1.Clear();
                 player2.Clear();
 
             }
+            #endregion
 
         }
-        /// <summary>
+        /// <summary>}
         /// Asking a user to give how many cards should be given to players.
         /// User enters an integer value between 1 and 5. 
         /// </summary>
@@ -74,6 +79,7 @@ namespace ProjectPartB_B1
             Console.Clear();
             Console.WriteLine("Let's play a game of highest card with two players.");
             string sInput;
+            NrOfCards = 0;
             do
             {
                 Console.WriteLine("How many cards to deal to each player? (1-5 or Q to quit)");
@@ -89,7 +95,7 @@ namespace ProjectPartB_B1
                     Console.WriteLine($"Wrong input, try again");
                 }
             } while ((sInput != "Q" && sInput != "q"));
-            NrOfCards = 0;
+            
             return false;
         }
 
@@ -103,6 +109,7 @@ namespace ProjectPartB_B1
         {
             Console.Clear();
             string sInput;
+            NrOfRounds = 0;
             do
             {
 
@@ -119,7 +126,7 @@ namespace ProjectPartB_B1
                     Console.WriteLine($"Wrong input, try again");
                 }
             } while ((sInput != "Q" && sInput != "q"));
-            NrOfRounds = 0;
+            
             return false;
         }
         /// <summary>
@@ -159,7 +166,7 @@ namespace ProjectPartB_B1
                 -1 => "Player2 wins!",
                 _ => throw new NotImplementedException()
             };
-            Console.WriteLine(WinningCard);
+            Console.WriteLine($"{WinningCard}\n");
 
             
         }

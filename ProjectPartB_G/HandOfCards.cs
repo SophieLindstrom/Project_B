@@ -30,8 +30,8 @@ namespace ProjectPartB_B1
             get
             {
                 Sort();
-                return hand[hand.Count - 1];
-                
+                PlayingCard highest = hand[^1];
+                return highest;
                 
             }
          }

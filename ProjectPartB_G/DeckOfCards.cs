@@ -66,8 +66,6 @@ namespace ProjectPartB_B1
                 {
                     cards.Add(new PlayingCard(color, value));
                     
-                  
-                    
                 }
             }
            

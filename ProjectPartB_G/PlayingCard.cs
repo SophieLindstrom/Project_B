@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectPartB_B1
 {
-	public class PlayingCard : IComparable<PlayingCard>, IPlayingCard
-	{
-		public PlayingCardColor Color { get; init; }
-		public PlayingCardValue Value { get; init; }
+    public class PlayingCard : IComparable<PlayingCard>, IPlayingCard
+    {
+        public PlayingCardColor Color { get; init; }
+        public PlayingCardValue Value { get; init; }
 
         public PlayingCard(PlayingCardColor color, PlayingCardValue value)
         {
@@ -19,9 +15,9 @@ namespace ProjectPartB_B1
         #region IComparable Implementation
         //Need only to compare value in the project
 
-        public bool Equals(PlayingCard card) => (this.Value, this.Color) == (card.Value, card.Color);
+        public bool Equals(PlayingCard card) => (this.Value) == (card.Value);
 
-        public override int GetHashCode() => (Value, Color).GetHashCode();
+        public override int GetHashCode() => (Value).GetHashCode();
         public override bool Equals(object obj) => Equals(obj as PlayingCard);
 
         #region operator overloading
@@ -31,8 +27,8 @@ namespace ProjectPartB_B1
 
         public int CompareTo(PlayingCard card)
         {
-            if (this.Value < card.Value ) return -1;
-            else if (this.Value == card.Value ) return 0;
+            if (this.Value < card.Value) return -1;
+            else if (this.Value == card.Value) return 0;
             else return 1;
         }
         #endregion
@@ -49,7 +45,7 @@ namespace ProjectPartB_B1
                     PlayingCardColor.Hearts => '\u2665',
                     _ => '\u2666'
                 };
-                return $"{c} {Value.ToString(), -7}";
+                return $"{c} {Value.ToString(),-7}";
             }
         }
         public override string ToString() => ShortDescription;
