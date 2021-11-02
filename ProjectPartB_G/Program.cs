@@ -92,7 +92,7 @@ namespace ProjectPartB_B1
                 else if (sInput != "Q" && sInput != "q")
                 {
 
-                    Console.WriteLine($"Wrong input, try again");
+                    Console.WriteLine($"Wrong input, try again!");
                 }
             } while ((sInput != "Q" && sInput != "q"));
             

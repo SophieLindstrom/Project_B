@@ -8,7 +8,7 @@ namespace ProjectPartB_B1
 {
     class DeckOfCards : IDeckOfCards
     {
-        #region cards List related
+        #region Cards List related
         protected const int MaxNrOfCards = 52;
         protected List<PlayingCard> cards = new List<PlayingCard>(MaxNrOfCards);
 
@@ -53,7 +53,7 @@ namespace ProjectPartB_B1
             
         }
         #endregion
-        #region Creating a fresh Deck
+        #region Creating a Fresh Deck
         public virtual void Clear()
         {
             cards.Clear(); 
@@ -65,6 +65,7 @@ namespace ProjectPartB_B1
                 for (PlayingCardValue value = PlayingCardValue.Two; value <= PlayingCardValue.Ace; value++)
                 {
                     cards.Add(new PlayingCard(color, value));
+
                     
                 }
             }
