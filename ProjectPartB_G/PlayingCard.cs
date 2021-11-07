@@ -15,21 +15,9 @@ namespace ProjectPartB_B1
         #region IComparable Implementation
         //Need only to compare value in the project
 
-        public bool Equals(PlayingCard card) => (this.Value) == (card.Value);
-
-        public override int GetHashCode() => (Value).GetHashCode();
-        public override bool Equals(object obj) => Equals(obj as PlayingCard);
-
-        #region operator overloading
-        public static bool operator ==(PlayingCard card1, PlayingCard card2) => card1.Equals(card2);
-        public static bool operator !=(PlayingCard card1, PlayingCard card2) => !card1.Equals(card2);
-        #endregion
-
         public int CompareTo(PlayingCard card)
         {
-            if (this.Value < card.Value) return -1;
-            else if (this.Value == card.Value) return 0;
-            else return 1;
+            return Value.CompareTo(card.Value);
         }
         #endregion
 
